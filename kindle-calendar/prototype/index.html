@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kindle 日历交互参考稿</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main>
+  <p class="preview-note">Paperwhite 3 交互参考稿 · 时间、天气、电量、宜忌为示例，尚未连接设备</p>
+  <article class="screen" aria-label="Kindle 日历界面">
+    <header><button data-action="city" aria-label="设置当前城市"><span aria-hidden="true">⌖</span> <span data-city>杭州</span>⌄</button><span class="device"><span data-network>已联网</span> ▰ 82%</span><button class="exit" data-action="exit" aria-label="退出应用，返回 Kindle 首页">↪ 退出</button></header>
+    <div class="body">
+      <section data-page="today" aria-label="日历">
+        <div class="date"><span>11月25日 <small>星期三</small></span><span data-lunar-today>农历十月十七</span></div>
+        <div class="hero"><div class="clock" aria-label="示例时间 9点41分">09:41</div><aside class="almanac" aria-label="今日宜忌示例"><div>今日宜忌 <small>· 示例</small></div><p><b>宜</b> 外出</p><p><b>忌</b> 生气</p></aside></div>
+        <div class="weather"><div class="weather-now"><span class="weather-icon" data-weather-icon aria-hidden="true">☁</span><div><div class="degrees">13<span>°C</span></div><div class="temperature-caption"><span data-weather>多云</span><span data-temp-label>当前气温</span></div></div></div><div class="range"><span>今日气温</span><strong>8° — 16°</strong></div></div>
+        <section class="hours" aria-label="未来24小时气温示例摘要"><div class="section-title"><h2>接下来24小时</h2><span>气温 °C</span></div><div class="hour-grid"><div><span>09时</span><b>13°</b></div><div><span>13时</span><b>16°</b></div><div><span>17时</span><b>14°</b></div><div><span>21时</span><b>11°</b></div><div><span>次日01时</span><b>9°</b></div><div><span>次日05时</span><b>8°</b></div></div></section>
+      </section>
+      <section data-page="month" aria-label="月历" hidden>
+        <div class="month-title"><button class="square" data-action="prev" aria-label="上个月">‹</button><h1><button data-action="this-month" data-month-title aria-label="回到本月">2026年11月</button></h1><button class="square" data-action="next" aria-label="下个月">›</button></div>
+        <div class="weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+        <div class="calendar" data-calendar></div><div class="calendar-note">● 今日　○ 选中　· 有待办</div>
+      </section>
+      <section class="todos" aria-label="待办事项"><div class="section-title"><h2 data-todo-title>今日待办</h2><span data-count></span><button class="add" data-action="add">＋ 新增</button></div><div data-task-list></div><div class="pager" data-task-pager hidden><button data-action="tasks-prev">上一页</button><span data-task-page></span><button data-action="tasks-next">下一页</button></div><p class="sr" data-task-announcement aria-live="polite"></p></section>
+    </div>
+    <footer><div class="sync" data-sync aria-live="polite"></div><nav aria-label="日历导航"><button data-action="today" aria-pressed="true">日历</button><button data-action="month" aria-pressed="false">月历</button></nav></footer>
+    <section class="home" data-home-panel aria-label="Kindle 首页示意" hidden><h1>Kindle 首页</h1><p>已退出日历应用</p><small>仅演示返回首页的状态</small><button class="primary" data-action="reopen">重新打开日历</button></section>
+  </article>
+  <details class="preview-controls"><summary>预览条件（不属于 Kindle 界面）</summary><label><input type="checkbox" data-offline> 离线状态</label><label>距缓存更新 <input type="range" min="0" max="360" value="11" data-cache-age> <output data-age-label>11 分钟</output></label><label>更新结果演示 <select data-refresh-outcome><option>更新中</option><option>成功</option><option>失败</option></select></label><label>天气图标 <select data-weather-choice><option>多云</option><option>晴</option><option>阴</option><option>雾</option><option>雪</option></select></label><p>仅演示缓存规则，没有发送天气请求。农历由现代浏览器本地换算。</p></details>
+</main>
+<dialog data-city-panel aria-label="设置当前城市"><div class="panel-title"><h1>当前城市</h1><button data-action="close-city">返回</button></div><form data-location-form><label>当前位置<input name="city" required maxlength="40" autocomplete="off" placeholder="输入城市或区县"></label><p class="help">正式版联网匹配城市后获取当地天气；这里仅演示位置输入。</p><button type="submit" class="primary">保存位置</button></form><section class="cache-info"><h2>离线缓存</h2><dl><div><dt>每日天气</dt><dd>15 天</dd></div><div><dt>逐小时气温</dt><dd>24 小时</dd></div><div><dt>最近更新</dt><dd data-cache-time></dd></div></dl><p class="help">离线读取缓存；联网且距上次成功更新超过两小时尝试更新。失败时保留旧缓存。</p></section></dialog>
+<dialog data-task-panel aria-label="新增待办"><div class="panel-title"><h1 data-editor-title>新增待办</h1><button data-action="close-task">取消</button></div><p data-editor-date></p><form data-task-form><label>待办内容<input name="task" required maxlength="120" autocomplete="off" placeholder="输入待办事项"></label><button type="submit" class="primary">保存待办</button></form></dialog>
+<script src="app.js"></script>
+</body></html>

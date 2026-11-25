@@ -1,0 +1,6 @@
+{
+  "items": [{
+    "name": "Weather Check (no system changes)",
+    "items": [{"name": "Run network test (about 90 seconds)", "action": "sh ./bin/check.sh >/dev/null 2>&1 &"}]
+  }]
+}
