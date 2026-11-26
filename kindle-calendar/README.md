@@ -4,7 +4,8 @@
 
 ## 当前交付范围
 
-- [完整需求及界面设计](docs/DESIGN.md)
+- [需求文档与验收标准](docs/REQUIREMENTS.md)
+- [界面设计与缓存实现约定](docs/DESIGN.md)
 - [免费天气源检索及选型](docs/WEATHER-RESEARCH.md)
 - [可以独立打开的交互原型](prototype/index.html)：日历、月历、农历、待办增删改及勾选、城市输入、退出示意、缓存状态演示。
 - [KUAL 天气检测扩展](extensions/kindle-weather-check)：在设备自身网络下检测中国天气网和 Open-Meteo，保存日志与原始响应。
